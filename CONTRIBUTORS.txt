@@ -1,1 +1,2 @@
-Pablo Trinidad
+JonasTronco
+DATABASE_URL
