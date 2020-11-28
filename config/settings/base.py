@@ -45,10 +45,11 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 LOCAL_APPS = [
     'handwritten.users.apps.UsersAppConfig',
-    # 'handwritten.utils.models.HandwrittenModel',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -156,3 +157,9 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERYD_TASK_TIME_LIMIT = 5 * 60
 CELERYD_TASK_SOFT_TIME_LIMIT = 60
+
+REST_FRAMEWORK = {
+    'DEFAULT_REDERER_CLASSES': (        
+        'rest_framework.rederers.JSONRenderer',
+    )
+}

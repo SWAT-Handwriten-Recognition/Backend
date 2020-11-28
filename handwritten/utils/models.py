@@ -21,5 +21,4 @@ class HandwrittenModel(models.Model):
 
     class Meta:
         abstract = True
-
         get_latest_by = 'created'
