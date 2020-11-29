@@ -32,32 +32,5 @@ services:
     env_file:
       - ./.envs/.local/.postgres
 
-  redis:
-    image: redis:3.2
 
-  celeryworker:
-    <<: *django
-    image: handwritten_local_celeryworker
-    depends_on:
-      - redis
-      - postgres
-      
-    ports: []
-    command: /start-celeryworker
-
-  celerybeat:
-    <<: *django
-    image: handwritten_local_celerybeat
-    depends_on:
-      - redis
-      - postgres
-      
-    ports: []
-    command: /start-celerybeat
-
-  flower:
-    <<: *django
-    image: handwritten_local_flower
-    ports:
-      - "5555:5555"
-    command: /start-flower
+  
