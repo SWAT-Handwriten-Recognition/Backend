@@ -1,9 +1,10 @@
 """Users Serializers"""
 #Django
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, password_validation
 # Django REST Framework
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
+from rest_framework.validators import UniqueValidator
 
 #Models
 from handwritten.users.models import User
@@ -20,6 +21,34 @@ class UserModelSerializer(serializers.ModelSerializer):
             'email'
         )
 
+class UserSignUpSerializer(serializers.Serializer):
+    """User Sign Up serializer"""
+    email = serializers.EmailField(
+        validators=[UniqueValidator(queryset=User.objects.all())]
+    )
+    username = serializers.CharField(
+        min_length=4,
+        max_length=20,
+        validators=[UniqueValidator(queryset=User.objects.all())]
+    )
+    #Password
+    password = serializers.CharField(min_length=8,max_length=64)
+    password_confirmation = serializers.CharField(min_length=8,max_length=64)
+    #Name
+    first_name = serializers.CharField(min_length=2,max_length=30)
+    last_name = serializers.CharField(min_length=2,max_length=30)
+
+    def validate(self,data):
+        passwd = data['password']
+        passwd_conf = data['password_confirmation']
+        if passwd != passwd_conf:
+            raise serializers.ValidationError('Passwords does not match')
+        password_validation.validate_password(passwd)
+        return data
+    def create(self,data):
+        data.pop('password_confirmation')
+        user = User.objects.create_user(**data)        
+        return user
 
 class UserLoginSerializer(serializers.Serializer):
     """ User login Serializer"""
