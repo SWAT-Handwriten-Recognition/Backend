@@ -277,3 +277,6 @@ handwritten/media/
 .env
 .envs/*
 !.envs/.local/
+
+### Deploy
+stack-production.yml
