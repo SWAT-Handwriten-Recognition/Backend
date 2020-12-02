@@ -1,14 +1,16 @@
 version: '3'
 
-volumes:
-
 services:
   django: &django
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
-    image: handwritten_production_django
+    image: jonattan95/handwritten_production_django:latest
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
     command: /start
+    ports:
+      - "8000:8000"
+
+
