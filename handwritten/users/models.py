@@ -9,6 +9,11 @@ class User(HandwrittenModel,AbstractUser):
     """
     User Model
     """
+    username = models.CharField(
+        primary_key=True,
+        unique=True,
+        max_length=20,
+    )
     email = models.EmailField(
         'email address',
         unique=True,
@@ -20,7 +25,7 @@ class User(HandwrittenModel,AbstractUser):
     REQUIRED_FIELDS = ['username','first_name', 'last_name']
 
     def __str__(self):
-        return self.first_name
+        return self.username
 
 
     

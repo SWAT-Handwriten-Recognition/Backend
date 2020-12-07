@@ -8,7 +8,10 @@ docker-compose -f local.yml up
 
 Comandos de Administración
 
-docker-compose -f local.yml run --rm django python manage.py createsuperuser
+1. docker-compose -f local.yml run --rm django python manage.py createsuperuser
+2. docker-compose -f local.yml run --rm django python manage.py makemigrations
+3. docker-compose -f local.yml run --rm django python manage.py migrate
+
 
 Habilitar debugger
 

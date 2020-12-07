@@ -10,5 +10,6 @@ urlpatterns = [
     # Django Admin
     path(settings.ADMIN_URL, admin.site.urls),
     path('',include(('handwritten.users.urls'), namespace='users')),
+    path('',include(('handwritten.signatures.urls'), namespace='signatures')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
