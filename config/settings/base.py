@@ -50,6 +50,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'handwritten.users.apps.UsersAppConfig',
+    'handwritten.signatures.apps.SignatureAppConfig'
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -161,5 +162,8 @@ MANAGERS = ADMINS
 REST_FRAMEWORK = {
     'DEFAULT_REDERER_CLASSES': (        
         'rest_framework.rederers.JSONRenderer',
-    )
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
