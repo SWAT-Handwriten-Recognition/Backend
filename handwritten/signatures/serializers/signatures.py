@@ -15,7 +15,3 @@ class SignatureModelSerializer(serializers.ModelSerializer):
             'username',
             'picture',
         )
-
-        read_only_fields = (
-            'picture',
-        )
