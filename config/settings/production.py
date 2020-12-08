@@ -46,6 +46,9 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': f'max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate',
 }
 
+#CROS
+CORS_ORIGIN_ALLOW_ALL = True
+
 # Static  files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -67,6 +70,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
 
 # Admin
 ADMIN_URL = env('DJANGO_ADMIN_URL')
+
 
 # Gunicorn
 INSTALLED_APPS += ['gunicorn']  # noqa F405
