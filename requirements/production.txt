@@ -7,8 +7,6 @@ gunicorn==19.9.0
 # Static files
 django-storages[boto3]==1.7.1
 
-# Email
-django-anymail[mailgun]==5.0
 
 #CROS
 django-cors-headers==3.5.0 
