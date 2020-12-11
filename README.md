@@ -2,9 +2,11 @@ Handwritten API REST
 =============
 
 
-docker-compose -f local.yml --build
+docker-compose -f local.yml build
 
 docker-compose -f local.yml up
+
+docker-compose -f local.yml up --build
 
 Comandos de Administración
 
@@ -17,7 +19,7 @@ Habilitar debugger
 
 Pasos:
 
-1. Ejecutar docker-compose -f local.yml --build up
+1. Ejecutar docker-compose -f local.yml up --build 
 2. Ejecutar docker-compose -f local.yml ps
 3. Matar el contenedor de django con: docker rm -f (ID)
 4. Correr docker-compose -f local.yml run --rm --service-ports django

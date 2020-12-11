@@ -7,13 +7,13 @@ from django.urls import path,include
 from rest_framework.routers import DefaultRouter
 
 #Views
-from .views import signatures as signature_views
+from .views import verifications as verify_views
 
-
-app_name = 'signatures'
+app_name = 'verify'
 
 router = DefaultRouter()
-router.register(r'signatures',signature_views.SignatureViewSet, basename='signatures')
+router.register(r'',verify_views.VerifyViewSet, basename='verify')
+
 urlpatterns=[
     path('',include(router.urls)),    
 ]

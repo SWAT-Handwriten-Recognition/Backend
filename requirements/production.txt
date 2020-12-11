@@ -7,6 +7,4 @@ gunicorn==19.9.0
 # Static files
 django-storages[boto3]==1.7.1
 
-
-#CROS
-django-cors-headers==3.5.0 
+ 
