@@ -13,7 +13,8 @@ app_name = 'signatures'
 
 router = DefaultRouter()
 router.register(r'signatures',signature_views.SignatureViewSet, basename='signatures')
-
+# router.register(r'signatures',signature_views.SignatureList, basename='signatureslist')
 urlpatterns=[
-    path('',include(router.urls)),    
+    path('',include(router.urls))    
 ]
+# import ipdb;ipdb.set_trace()
