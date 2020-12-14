@@ -17,12 +17,4 @@ class SignatureModelSerializer(serializers.ModelSerializer):
             'picture',
         )
 
-class AddSignatureModelSerializer(serializers.Serializer):
-    """Model Serializer to Create a new Signature"""
-    username = serializers.CharField()
-    picture = serializers.ImageField()
 
-    def create(self,data):
-        user = User.objects.get(username=data['username'])    
-        Signature = Signature.objects.create(username=user,picture=data['picture'])
-        return Signature
