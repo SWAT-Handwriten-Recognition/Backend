@@ -5,9 +5,10 @@ from rest_framework import serializers
 
 #Model
 from handwritten.signatures.models import Signature
+from handwritten.users.models import User
 
 class SignatureModelSerializer(serializers.ModelSerializer):
-    """Circle model serializer"""
+    """Signature model serializer"""
     class Meta:
         """Meta Class"""
         model = Signature
@@ -15,3 +16,5 @@ class SignatureModelSerializer(serializers.ModelSerializer):
             'username',
             'picture',
         )
+
+
