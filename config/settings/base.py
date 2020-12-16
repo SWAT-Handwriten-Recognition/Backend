@@ -52,7 +52,8 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'handwritten.users.apps.UsersAppConfig',
-    'handwritten.signatures.apps.SignatureAppConfig'
+    'handwritten.signatures.apps.SignatureAppConfig',
+    'handwritten.verifications.apps.VerifyAppConfig'
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -171,3 +172,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+#ENV
+PROD = True
